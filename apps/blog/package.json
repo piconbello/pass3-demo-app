@@ -5,7 +5,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev",
+    "dev": "PORT=3013 remix dev",
     "typecheck": "tsc --noEmit",
     "lint": "eslint app/"
   },
