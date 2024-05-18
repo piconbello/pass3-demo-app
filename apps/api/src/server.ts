@@ -3,8 +3,8 @@ import express, { type Express } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-const PASS3_APP_SECRET = 'acemal';
-const PASS3_APP_ID = '1234';
+const PASS3_CLIENT_ID = '1234';
+const PASS3_CLIENT_SECRET = 'cemal';
 
 export const createServer = (): Express => {
   const app = express();
@@ -33,8 +33,8 @@ export const createServer = (): Express => {
         },
         body: JSON.stringify({
           attemptId: req.params.code,
-          appId: PASS3_APP_ID,
-          appSecret: PASS3_APP_SECRET,
+          clientId: PASS3_CLIENT_ID,
+          clientSecret: PASS3_CLIENT_SECRET,
         }),
       })
         .then((res) => res.json())
