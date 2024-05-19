@@ -1,17 +1,14 @@
 'use client';
 import { log } from '@repo/logger';
-import { CounterButton, Link } from '@repo/ui';
+import { CounterButton, Button, Link, Fail, Success } from '@repo/ui';
 import React, { MouseEventHandler, useEffect, useState } from 'react';
-
-// export const metadata = {
-//   title: 'Store | Kitchen Sink',
-// };
 
 export default function Store(): JSX.Element {
   log('Hey! This is the Store page.');
   const [externalPopup, setExternalPopup] = useState<Window | null>(null);
+  const [backendResponse, setBackendResponse] = useState<any>(null);
 
-  const connectClick = (_: any) => {
+  const connectClick = () => {
     const left = window.screenX + (window.outerWidth - 500) / 2;
     const top = window.screenY + (window.outerHeight - 400) / 2.5;
     const title = `PASS3 AUTHENTICATION`;
@@ -52,6 +49,7 @@ export default function Store(): JSX.Element {
                 // success
                 const data = await response.json();
                 console.log(data);
+                setBackendResponse(data);
               } else {
                 // error
               }
@@ -72,23 +70,33 @@ export default function Store(): JSX.Element {
   }, [externalPopup]);
 
   return (
-    <div className='container'>
-      <h1 className='title'>
-        Store <br />
-        <span>Kitchen Sink</span>
-      </h1>
-      <button onClick={connectClick}>Connect</button>
-      <CounterButton />
-      <p className='description'>
-        Built With{' '}
-        <Link href='https://turbo.build/repo' newTab>
-          Turborepo
-        </Link>
-        {' & '}
-        <Link href='https://nextjs.org/' newTab>
-          Next.js
-        </Link>
-      </p>
-    </div>
+    <>
+      {!backendResponse && (
+        <div className='container'>
+          <h1 className='title'>
+            Welcome to <br />
+            <span>Kitchen Sing</span>
+          </h1>
+          <div
+            style={{
+              background: `rgba(68, 161, 255, 0.25)`,
+              borderRadius: `8px`,
+              padding: '1.5rem',
+              fontWeight: 500,
+              color: 'rgb(10, 63, 119)',
+            }}
+          >
+            <p style={{ margin: '0 0 0 0' }}>Login to proceed further...</p>
+          </div>
+          <Button onClick={connectClick}>Login with Pass3</Button>
+        </div>
+      )}
+      {backendResponse && backendResponse.success && (
+        <Success {...backendResponse} />
+      )}
+      {backendResponse && !backendResponse.success && (
+        <Fail {...backendResponse} />
+      )}
+    </>
   );
 }
