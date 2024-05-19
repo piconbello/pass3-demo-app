@@ -1,8 +1,4 @@
 'use client';
-import { log } from '@repo/logger';
-import { CounterButton, Link } from '@repo/ui';
-import React, { MouseEventHandler, useEffect, useState } from 'react';
-
 // export const metadata = {
 //   title: 'Store | Kitchen Sink',
 // };
@@ -14,9 +10,9 @@ export function Success(props: {
 }): JSX.Element {
   const { attemptId, walletId, success } = props;
   return (
-    <div className='container'>
-      <h1 className='title'>Success!</h1>
-      <p className='description'>
+    <div className="container">
+      <h1 className="title">Success!</h1>
+      <p className="description">
         You have successfully logged in using Pass3.
       </p>
       <div
