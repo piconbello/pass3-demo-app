@@ -1,7 +1,4 @@
 'use client';
-// export const metadata = {
-//   title: 'Store | Kitchen Sink',
-// };
 
 export function Success(props: {
   attemptId: string;
