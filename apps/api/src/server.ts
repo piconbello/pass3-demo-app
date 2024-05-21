@@ -26,7 +26,7 @@ export const createServer = (): Express => {
       // Call the pass3 validation service
       // if the code is valid, return a token
       // if the code is invalid, return an error
-      const response = await fetch('http://localhost:8081/api/v1/validate', {
+      const response = await fetch('https://api.pass3.co/api/v1/validate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

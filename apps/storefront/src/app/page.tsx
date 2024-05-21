@@ -12,7 +12,7 @@ export default function Store(): JSX.Element {
     const left = window.screenX + (window.outerWidth - 500) / 2;
     const top = window.screenY + (window.outerHeight - 400) / 2.5;
     const title = `PASS3 AUTHENTICATION`;
-    const url = `http://localhost:3020/auth/login?client_id=1234&redirect_uri=http://localhost:3010/pass`;
+    const url = `https://app.pass3.co/auth/login?client_id=1234&redirect_uri=http://localhost:3010/pass`;
     const popup = window.open(
       url,
       title,
@@ -41,7 +41,7 @@ export default function Store(): JSX.Element {
         if (code) {
           externalPopup.close();
           console.log(`The popup URL has URL code param = ${code}`);
-          await fetch(`http://localhost:3011/auth/pass3/${code}`)
+          await fetch(`https://p3-demo-api.vercel.app/auth/pass3/${code}`)
             .then(async (response) => {
               // change UI to show after the code was stored
               const status = response.status;
