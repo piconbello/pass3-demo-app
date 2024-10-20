@@ -3,7 +3,7 @@ import express, { type Express } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-const PASS3_CLIENT_ID = '1234';
+const PASS3_CLIENT_ID = 'kitchen-sing';
 const PASS3_CLIENT_SECRET = 'cemal';
 
 export const createServer = (): Express => {

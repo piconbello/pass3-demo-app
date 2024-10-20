@@ -12,7 +12,7 @@ export default function Store(): JSX.Element {
     const left = window.screenX + (window.outerWidth - 700) / 2;
     const top = window.screenY + (window.outerHeight - 700) / 2.5;
     const title = `PASS3 AUTHENTICATION`;
-    const url = `https://app.pass3.co/?client_id=1234&redirect_uri=https://p3-demo-storefront.vercel.app/pass`;
+    const url = `https://app.pass3.co/?client_id=kitchen-sing&redirect_uri=https://p3-demo-storefront.vercel.app/pass`;
     const popup = window.open(
       url,
       title,
@@ -72,8 +72,8 @@ export default function Store(): JSX.Element {
   return (
     <>
       {!backendResponse && (
-        <div className='container'>
-          <h1 className='title'>
+        <div className="container">
+          <h1 className="title">
             Welcome to <br />
             <span>Kitchen Sing</span>
           </h1>
